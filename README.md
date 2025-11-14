@@ -178,6 +178,3 @@ Crear artefacto .war o usar IntelliJ > "Run on Tomcat"
 
 Abrir en navegador:
 http://localhost:8080/proyectoKaren3_war/
-
-
-http://localhost:8080/JuegoSueños/
