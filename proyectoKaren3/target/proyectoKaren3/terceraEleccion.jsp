@@ -36,9 +36,9 @@
 <p class="texto-principal">
     Pudiste ir cubriendote con el follaje de la selva y llegaste al final del camino.<br>
     Logras ver el muelle a lo lejos y solo hay dos caminos para llegar. <br>
-    Por el lado derecho ves que se acerca una manada de Gigantospinosaurus y por el
-    lado izquierdo una manada de Dimorphodones. Una de las especies es carnivora y la otra    <br>
-    es herbivora. <br>
+    Por el lado derecho ves que se acerca una manada de Gigantospinosaurus
+    y por el lado izquierdo una manada de Dimorphodones.  <br>
+    Una de las especies es carnivora y la otra es herbivora. <br>
 
     <img class="imagen-ajustada" src="https://i.pinimg.com/736x/6e/9f/4f/6e9f4f9517c939a926ada934db1ab9de.jpg" alt="Imagen">
 
