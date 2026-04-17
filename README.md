@@ -1,180 +1,70 @@
-🌙 Juego de Decisiones — “El Despertar”
+🌙 "The Awakening" — Interactive Decision-Based Web Game
+A narrative-driven web application built with Java Servlets and JSP. The project immerses the player in a mysterious dreamscape where survival depends on strategic choices. Beyond the gameplay, this project demonstrates robust server-side state management and a comprehensive unit testing suite.
 
-Este proyecto es una aplicación web desarrollada con Java Servlets, JSP, Tomcat 11 y JDK 17.
-El jugador despierta dentro de un sueño misterioso y solo podrá despertar si toma las decisiones correctas. Cada error lo regresa al inicio, mientras que cada triunfo se registra en un sistema interno de estadísticas que se conserva durante la ejecución del servidor.
+🎮 Game Overview
+The player awakens in a dream and must navigate through a series of challenges.
 
-El proyecto incluye un sistema completo de tests unitarios con JUnit y Mockito, asegurando que la lógica del juego y el conteo de estadísticas funcionen correctamente.
+Dynamic Flow: Every "scene" is managed by Servlets that process user decisions via GET/POST requests.
 
-🎮 ¿Cómo funciona el juego?
+Consequences: Incorrect choices redirect the player to a "failure" state, while correct paths lead toward the "Awakening."
 
-El jugador escribe su nombre y comienza una aventura basada en decisiones.
+Persistence: The server tracks player statistics (Wins/Losses) globally using a Map<String, int[]> stored within the ServletContext, ensuring data persists during the server's lifecycle.
 
-Cada “escena” o desafío se gestiona con Servlets.
+🧠 Key Technical Features
+MVC Pattern: Separation of concerns using JSPs for views and Servlets for controller logic.
 
-Si escoge mal, pierde y vuelve al menú principal.
+State & Session Management: Utilizes HttpSession for individual player progress and ServletContext for global stat tracking.
 
-Si escoge bien, avanza.
+Modern Stack: Fully compatible with Tomcat 11 and Jakarta EE 10 (Servlets 6.0).
 
-Al final del juego se registra si el jugador:
+Robust Testing: 100% logic coverage using JUnit 5 and Mockito to simulate the web environment.
 
-Ganó
+Functionality Screenshots Description
+*************************************
+1.MainGUI: Displays the landing page and the game's initial entry point.
 
-Perdió
+2.Username: Displays the interface for user identification and session startup.
 
-El servidor guarda las partidas que pierde o gana el jugador.
+3.FirstLevel: Shows the first decision-making stage and the beginning of the narrative.
 
-🧠 Características principales
+4.SecondLevel: Displays the intermediate game level with increased decision complexity.
 
-✔ Juego interactivo basado en decisiones
-✔ Flujo controlado mediante Servlets (GET/POST)
-✔ Manejo de sesiones por jugador
-✔ Compatible con Tomcat 11 + JDK 17
-✔ Suite de pruebas unitarias (JUnit + Mockito)
+5.ThirdLevel: Shows the final decision stage leading to the story's conclusion.
 
-🧪 Pruebas Unitarias Incluidas
+6.IfYouLose: Displays the "Game Over" screen and the consequences of an unsuccessful choice.
 
-El proyecto contiene una suite diseñada para validar:
+7.SavedProgressState: Shows the session management system tracking wins and losses per user.
 
-✔ Registro correcto de victorias
+8.IfYouWin: Displays the success screen and the final outcome for surviving the dream.
+🧪 Unit Testing Suite
+To ensure reliability, the project includes a comprehensive test suite that mocks the Servlet environment using Mockito:
 
-Verifica que si el jugador acepta el desafío final, su contador de victorias aumenta.
+Win/Loss Logic: Validates that victory/defeat counters increment correctly in the global map.
 
-✔ Manejo del caso “jugador no registrado”
+Session Validation: Verifies that unregistered users are automatically redirected to the login screen (nombre.jsp).
 
-Si el jugador no tiene sesión, se redirige a nombre.jsp.
+Route Protection: Tests that specific decisions correctly trigger redirects to perder.jsp or forward to the next stage in index.jsp.
 
-✔ Elección de perder
+Mocked Objects: Simulations of HttpServletRequest, HttpServletResponse, HttpSession, and ServletContext.
 
-Si el jugador rechaza el desafío, se redirige a perder.jsp.
+🚀 Technologies Used
+Language: Java 17
 
-✔ Elección correcta
+Web: Jakarta EE 10 (Servlets 6.0, JSP, JSTL)
 
-Si responde afirmativamente, continúa hacia index.jsp.
+Server: Apache Tomcat 11
 
-Estas pruebas simulan completamente un entorno web usando:
+Testing: JUnit 5, Mockito
 
-HttpServletRequest
+Build Tool: Maven
+▶️ Installation & Execution
+Prerequisites: Ensure Tomcat 11 and JDK 17 are installed.
 
-HttpServletResponse
+Build: Generate the .war file using Maven:
 
-HttpSession
+Bash
+mvn clean package
+Deploy: Move the .war file to the webapps folder of your Tomcat directory or run directly from IntelliJ/NetBeans using the "Run on Tomcat" configuration.
 
-ServletContext
-
-ServletConfig
-
-🚀 Tecnologías usadas
-
-Java 17
-
-Jakarta EE (Servlets 6)
-
-Tomcat 11
-
-JSP + JSTL
-
-JUnit 5
-
-Mockito
-
-Maven
-
-▶️ Cómo ejecutar
-
-Instalar Tomcat 11
-
-🌙 Juego de Decisiones — “El Despertar”
-
-Este proyecto es una aplicación web desarrollada con Java Servlets, JSP, Tomcat 11 y JDK 17.
-El jugador despierta dentro de un sueño misterioso y solo podrá despertar si toma las decisiones correctas. Cada error lo regresa al inicio, mientras que cada triunfo se registra en un sistema interno de estadísticas que se conserva durante la ejecución del servidor.
-
-El proyecto incluye un sistema completo de tests unitarios con JUnit y Mockito, asegurando que la lógica del juego y el conteo de estadísticas funcionen correctamente.
-
-🎮 ¿Cómo funciona el juego?
-
-El jugador escribe su nombre y comienza una aventura basada en decisiones.
-
-Cada “escena” o desafío se gestiona con Servlets.
-
-Si escoge mal, pierde y vuelve al menú principal.
-
-Si escoge bien, avanza.
-
-Al final del juego se registra si el jugador:
-
-Ganó
-
-Perdió
-
-El servidor guarda sus estadísticas en un Map<String, int[]>, donde:
-
-int[0] = derrotas
-
-int[1] = victorias
-
-🧠 Características principales
-
-✔ Juego interactivo basado en decisiones
-✔ Flujo controlado mediante Servlets (GET/POST)
-✔ Estadísticas globales almacenadas en ServletContext
-✔ Manejo de sesiones por jugador
-✔ JSPs para las vistas
-✔ Compatible con Tomcat 11 + JDK 17
-✔ Suite de pruebas unitarias (JUnit + Mockito)
-
-🧪 Pruebas Unitarias Incluidas
-
-El proyecto contiene una suite diseñada para validar:
-
-✔ Registro correcto de victorias
-
-Verifica que si el jugador acepta el desafío final, su contador de victorias aumenta.
-
-✔ Manejo del caso “jugador no registrado”
-
-Si el jugador no tiene sesión, se redirige a nombre.jsp.
-
-✔ Elección de perder
-
-Si el jugador rechaza el desafío, se redirige a perder.jsp.
-
-✔ Elección correcta
-
-Si responde afirmativamente, continúa hacia index.jsp.
-
-Estas pruebas simulan completamente un entorno web usando:
-
-HttpServletRequest
-
-HttpServletResponse
-
-HttpSession
-
-ServletContext
-
-ServletConfig
-
-🚀 Tecnologías usadas
-
-Java 17
-
-Jakarta EE (Servlets 6)
-
-Tomcat 11
-
-JSP + JSTL
-
-JUnit 5
-
-Mockito
-
-Maven
-
-▶️ Cómo ejecutar
-
-Instalar Tomcat 11
-
-Crear artefacto .war o usar IntelliJ > "Run on Tomcat"
-
-Abrir en navegador:
+Access: Open your browser at:
 http://localhost:8080/proyectoKaren3_war/
