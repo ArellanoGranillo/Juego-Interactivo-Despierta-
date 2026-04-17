@@ -1,4 +1,6 @@
 🌙 "The Awakening" — Interactive Decision-Based Web Game
+**Functionality Screenshots Added**
+
 A narrative-driven web application built with Java Servlets and JSP. The project immerses the player in a mysterious dreamscape where survival depends on strategic choices. Beyond the gameplay, this project demonstrates robust server-side state management and a comprehensive unit testing suite.
 
 🎮 Game Overview
@@ -19,8 +21,7 @@ Modern Stack: Fully compatible with Tomcat 11 and Jakarta EE 10 (Servlets 6.0).
 
 Robust Testing: 100% logic coverage using JUnit 5 and Mockito to simulate the web environment.
 
-Functionality Screenshots Description
-*************************************
+**Functionality Screenshots Description**
 1.MainGUI: Displays the landing page and the game's initial entry point.
 
 2.Username: Displays the interface for user identification and session startup.
